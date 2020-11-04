@@ -1,5 +1,504 @@
-*{
+/*
+font-family: 'Karla',
+sans-serif;
+font-family: 'Sacramento',
+cursive;
+font-family: 'Source Sans Pro',
+sans-serif;
+*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+::selection {
+  color: rgb(255, 255, 255);
+  background: rgb(0, 255, 149);
+}
+@font-face {
+  font-family: 'BlockBeCnPro';
+  src: url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.woff');
+  src: url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.woff') format('woff'),
+    url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+html, body{
+  scroll-behavior: smooth;
+}
+* {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
+}
+
+.row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/*Navbar*/
+nav {
+  display: flex;
+  align-items: center;
+  min-height: 8vh;
+  position: sticky !important;
+  position: -webkit-sticky;
+  top: 0;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 3rem;
+  background: rgb(255, 255, 255);
+}
+
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 25px;
+}
+
+.menu a {
+  font-size: 22px;
+  text-transform: lowercase;
+  font-family: Karla !important;
+  text-decoration: none;
+  color: rgb(65, 62, 62);
+  display: block;
+  position: relative;
+  background: linear-gradient(85deg, rgb(255, 0, 170), rgb(55, 0, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu a::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgb(250, 0, 146), rgb(0, 183, 255));
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: right;
+  transition: 0.5s transform;
+}
+
+.menu a:hover::before {
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: left;
+  transition: 0.5s transform;
+}
+
+.navbar-brand {
+  transition: transform 0.2s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+
+/*Index page*/
+#index-top{
+  height: 90%;
+  width:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-index-title {
+  font-family: BlockBeCnPro;
+  font-size: 4em;
+  padding: 0 0 0 50px;
+  color: forestgreen;
+}
+
+.royal-border {
+  padding-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#ingredients h1,
+#food-items h1 {
+  font-size: 3em;
+  font-family: Cinzel;
+  text-align: center;
+  background: linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);
+
+  background: -moz-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);
+
+  background: -webkit-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#ingredients,
+#food-items {
+  padding: 10px 10% 10px 10%;
+}
+
+.card-pad {
+  margin-bottom: 20px;
+}
+
+.card-img-top-ingredients,
+.card-img-top-home-food {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  object-fit: cover !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-styles-ingredients,
+.card-styles-home-food {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #fff, #262626);
+  -webkit-box-shadow: 10px 10px 42px -25px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 10px 10px 42px -25px rgba(255, 255, 255, 1);
+  box-shadow: 10px 10px 42px -25px rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+}
+
+.card-styles-ingredients::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  border-radius: 10px;
+  animation: animate 20s linear infinite;
+  -webkit-animation: animate 20s linear infinite;
+}
+
+.card-styles-home-food::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  border-radius: 10px;
+  animation: animate 20s linear infinite;
+  -webkit-animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 300% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.card-title {
+  font-family: Itim, Sacramento;
+  font-size: 3em;
+  color: rgb(47, 0, 255);
+  text-align: center;
+}
+
+.burger-image {
+  width: 100%;
+}
+
+/* Footer */
+.links-header {
+  background: linear-gradient(45deg, rgb(243, 0, 0), rgb(255, 166, 0));
+  font-size: 3em;
+  font-family: Sacramento;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.links-text {
+  font-family: Cinzel;
+  font-size: 20px;
+}
+
+.links {
+  font-family: Cinzel;
+  font-size: 20px;
+}
+.cta{
+ position: relative;
+ font-family: BlockBeCnPro;
+ letter-spacing: 2px;
+}
+button{
+  margin-top: 20px !important;
+}
+
+/*Products Page*/
+@font-face {
+  font-family: 'BlockBeCnPro';
+  src: url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.woff');
+  src: url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.woff') format('woff'),
+    url('https://d2yb51knuewbts.cloudfront.net/fonts/blockbecondensed-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.collapsible {
+  background: linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%);
+
+  background: -moz-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%);
+
+  background: -webkit-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 2em;
+
+}
+
+.cart-item-title {
+  color: #eee !important;
+  font-family: Karla;
+  font-style: italic;
+  font-size: 20px !important;
+}
+
+.purchase {
+  font-family: Libre Franklin;
+  text-decoration: none !important;
+  color: #fff;
+}
+
+.cart-price {
+  font-family: Karla;
+  color: #ff3867ff !important;
+  letter-spacing: 1px;
+}
+
+.product-text-pizza {
+  background: linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%) !important;
+
+  background: -moz-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%) !important;
+
+  background: -webkit-linear-gradient(65deg, hsla(333, 100%, 53%, 1) 0%, rgb(168, 3, 245) 100%) !important;
+  font-family: Karla;
+  color: white;
+}
+
+.product-text-burger {
+  background: linear-gradient(45deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+
+  background: -moz-linear-gradient(45deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+
+  background: -webkit-linear-gradient(45deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+  font-family: Karla;
+  color: white;
+}
+
+.product-text-coffee {
+  background: linear-gradient(45deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
+
+  background: -moz-linear-gradient(45deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
+
+  background: -webkit-linear-gradient(45deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
+  font-family: Karla;
+  color: white;
+}
+
+.product-text-drinks {
+  background: linear-gradient(45deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+
+  background: -moz-linear-gradient(45deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+
+  background: -webkit-linear-gradient(45deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+  font-family: Karla;
+  color: white;
+}
+
+.product-text-shakes {
+  background: linear-gradient(45deg, hsla(49, 100%, 48%, 1) 0%, hsla(226, 69%, 30%, 1) 100%);
+
+  background: -moz-linear-gradient(45deg, hsla(49, 100%, 48%, 1) 0%, hsla(226, 69%, 30%, 1) 100%);
+
+  background: -webkit-linear-gradient(45deg, hsla(49, 100%, 48%, 1) 0%, hsla(226, 69%, 30%, 1) 100%);
+  font-family: Karla;
+  color: white;
+}
+
+.product-text-icecream {
+  background: linear-gradient(45deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%) !important;
+
+  background: -moz-linear-gradient(45deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%) !important;
+
+  background: -webkit-linear-gradient(45deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%) !important;
+  font-family: Karla;
+  color: white;
+}
+
+.shop-item-price {
+  text-align: right;
+  font-size: 30px;
+}
+
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+
+.product-titles {
+  font-family: BlockBeCnPro;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.content {
+  padding: 0 5vw;
+}
+
+.card {
+  margin: 20px 0;
+
+}
+
+.product-headings{
+  font-family: Sacramento;
+  font-size: 3em !important;
+  padding: 20px 20px;
+  color: rgb(255, 0, 106);
+}
+/*About us Page*/
+#features {
+  padding: 5% 10% 5%;
+  text-align: center;
+  background: url(../assets/cover2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  vertical-align: middle;
+}
+
+#workers {
+  padding: 100px 10%;
+  text-align: center;
+  background: url(../assets/about/people.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.features-heading {
+  color: #fff;
+  font-family: Karla;
+}
+
+.features-text {
+  color: #fff;
+  font-family: Karla;
+}
+
+.fafeatures {
+  color: #4aff47ff;
+  font-size: 4rem;
+  padding-bottom: 4%;
+}
+
+.fafeatures:hover {
+  color: #00fff7ff;
+}
+
+.founder-pad {
+  padding: 10px 0 100px !important;
+}
+
+.employee-heading {
+  font-family: Karla !important;
+  color: white;
+}
+
+.founder {
+  border-radius: 100%;
+  height: 40vh;
+  padding: 20px 0;
+}
+
+.founderrow {
+  vertical-align: middle;
+  top: 50%;
+  transform: translateY(25%);
+
+  padding-bottom: 100px !important;
+}
+
+.founder-heading {
+  font-family: Cinzel;
+  background: linear-gradient(85deg, rgb(255, 0, 170), rgb(55, 0, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.founder-text {
+  color: #000;
+  font-family: Karla;
 }
